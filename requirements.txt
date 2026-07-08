@@ -1,4 +1,5 @@
 torch
+# torch is used for feed forward network
 numpy
 jupyter
 matplotlib

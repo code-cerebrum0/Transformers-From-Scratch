@@ -23,8 +23,6 @@ Each component is implemented independently so you can see exactly how the piece
 
 ## Design decisions & what I learned
 
-Positional encoding uses fixed sinusoidal functions rather than learned embeddings, following the original paper — the motivation is that sinusoidal encoding generalizes to sequence lengths longer than those seen during training.
-
 The trickiest part was keeping the NumPy and PyTorch boundaries consistent: attention and layer norm are plain NumPy, while the feed-forward network and final output projection are PyTorch `nn.Module`s, so tensors get converted back and forth at each block. That mix makes the math easy to read step-by-step but isn't the most efficient way to structure things — a good candidate for cleanup if this gets extended into a trainable model.
 
 ---
